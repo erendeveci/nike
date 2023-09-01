@@ -1,13 +1,27 @@
 import { shoe8 } from "../assets/images";
+import { TypingText } from "../components/CustomTexts";
+import { motion } from "framer-motion";
+
 import Button from "../components/Button";
+import { fadeIn } from "../utils/motion";
 
 const SuperQuality = () => {
   return (
     <section
       id="about-us"
-      className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container"
+      className="overflow-hidden flex justify-between items-center max-lg:flex-col gap-10 w-full max-container"
     >
-      <div className="flex flex-1 flex-col">
+      <motion.div
+        variants={fadeIn("right", "tween", 0.2, 1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+        className="flex flex-1 flex-col"
+      >
+        <TypingText
+          title="| Quality"
+          textStyles="text-[16px] text-coral-red text-start"
+        />
         <h2 className="font-palanquin capitalize text-4xl font-bold lg:max-w-lg">
           We Provide You
           <span className="text-coral-red"> Super</span>
@@ -25,10 +39,16 @@ const SuperQuality = () => {
         <div className="mt-12">
           <Button label="View Details" />
         </div>
-      </div>
-      <div className="flex flex-1 justify-center items-center">
+      </motion.div>
+      <motion.div
+        variants={fadeIn("left", "tween", 0.2, 1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.25 }}
+        className="flex flex-1 justify-center items-center"
+      >
         <img src={shoe8} alt="shoe8" width={570} height={522} />
-      </div>
+      </motion.div>
     </section>
   );
 };

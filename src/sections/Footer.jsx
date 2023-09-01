@@ -1,10 +1,17 @@
 import { copyrightSign } from "../assets/icons";
 import { footerLogo } from "../assets/images";
 import { footerLinks, socialMedia } from "../constants/index";
-
+import { motion } from "framer-motion";
+import { footerVariants } from "../utils/motion";
 const Footer = () => {
   return (
-    <footer className="max-container">
+    <motion.footer
+      variants={footerVariants}
+      initial="hidden"
+      whileInView="show"
+      className="max-container"
+    >
+      <div className="footer-gradient" />
       <div className="flex justify-between  items-center gap-20 flex-wrap max-lg:flex-col">
         <div className="flex flex-col items-start">
           <a href="/">
@@ -18,7 +25,7 @@ const Footer = () => {
           <div className="flex items-center  w-full gap-5 mt-8">
             {socialMedia.map((icon, index) => (
               <div
-                className="flex justify-center items-center w-12 h-12 bg-white rounded-full"
+                className="flex justify-center hover:bg-[#ff6452] transition-colors  duration-500 items-center w-12 h-12 bg-white rounded-full"
                 key={index}
               >
                 <img width={24} height={24} src={icon.src} alt={icon.alt} />
@@ -36,7 +43,7 @@ const Footer = () => {
               <ul>
                 {section.links.map((link) => (
                   <li
-                    className="mt-3 font-montserrat text-base leading-normal text-white-400 hover:text-slate-gray transition-colors"
+                    className="mt-3 font-montserrat text-base leading-normal text-white-400 hover:text-white transition-colors duration-200"
                     key={link.name}
                   >
                     <a href={link.link}>{link.name}</a>
@@ -61,7 +68,7 @@ const Footer = () => {
         </div>
         <p className="font-montserrat cursor-pointer">Terms & Conditions</p>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

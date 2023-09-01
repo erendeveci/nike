@@ -1,8 +1,15 @@
 import { star } from "../assets/icons";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/motion";
 const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
   return (
-    <div className="flex justify-center items-center flex-col">
+    <motion.div
+      variants={fadeIn("up", "tween", 0.2, 1)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+      className="flex justify-center items-center flex-col"
+    >
       <img
         src={imgURL}
         alt="customer"
@@ -20,8 +27,10 @@ const ReviewCard = ({ imgURL, customerName, rating, feedback }) => {
         />
         <p className="text-xl font-montserrat text-slate-gray">({rating})</p>
       </div>
-      <h3 className="mt-1 font-palanquin text-3xl text-center font-bold">{customerName}</h3>
-    </div>
+      <h3 className="mt-1 font-palanquin text-3xl text-center font-bold">
+        {customerName}
+      </h3>
+    </motion.div>
   );
 };
 

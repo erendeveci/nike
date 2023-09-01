@@ -10,14 +10,12 @@
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  
 }
- 
+
 @layer components {
   .max-container {
     max-width: 1440px;
     margin: 0 auto;
-   
   }
 
   .input {
@@ -57,4 +55,30 @@
   .info-text {
     @apply font-montserrat text-slate-gray text-lg leading-7;
   }
+}
+
+.footer-gradient {
+  position: absolute;
+  width: 500px;
+  height: 100px;
+  left: 37%;
+  bottom: 0;
+
+  background: #ff6452;
+  filter: blur(150px);
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Kaydırma çubuğu kalınlığı */
+}
+
+/* Kaydırma çubuğu başparmağı (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #ff6452; /* Kaydırma çubuğu başparmağının rengi */
+  border-radius: 5px; /* Kaydırma çubuğu başparmağının kenar yuvarlaması */
+}
+
+/* Kaydırma çubuğu arka planı (track) */
+::-webkit-scrollbar-track {
+  background-color: #e0e0e0; /* Kaydırma çubuğu arka plan rengi */
 }
